@@ -1,0 +1,124 @@
+LAB NO 05
+
+TASK 1: 
+
+org 100h
+.data
+.code
+main proc
+    
+ 
+    mov ah, 1h        
+    int 21h
+    sub al, 30       
+    mov bl, al        
+
+    
+    mov ah, 1h        
+    int 21h
+    sub al, 30       
+    mov bh, al        
+
+    add bh, 30       
+    mov dl, bh
+    mov ah, 2h
+    int 21h
+
+    add bl, 30       
+    mov dl, bl
+    mov ah, 2h
+    int 21h
+
+    mov ah, 4Ch
+    int 21h
+
+main endp
+
+end main
+
+
+
+
+TASK 2:
+org 100h
+.data
+.code
+main proc
+    
+    mov ah, 1h       
+    int 21h           
+   
+    add al, '0'       
+    mov dl, al        
+    mov ah, 2h
+    int 21h           
+
+    mov ah, 4Ch
+    int 21h
+
+main endp
+
+end main
+
+
+
+
+TASK 3:
+ 
+org 100h
+
+.data
+.code
+main proc
+
+    
+    mov bl, 3        
+    mov bh, 5       
+    add bl, bh      
+    mov dl, 6       
+
+    sub bl, dl     
+
+    add bl, 30h    
+    mov dl, bl      
+    mov ah, 2h      
+    int 21h
+
+    mov ah, 4Ch
+    int 21h
+main endp
+end main
+
+
+
+
+
+Task 4: 
+
+org 100
+.data
+.code
+main proc
+    mov ah, 1h       
+    int 21h           
+    sub al, 30h       
+    mov bl, al        
+    mov ah, 1h        
+    int 21h          
+    sub al, 30h       
+    mov bh, al        
+   
+    xchg bl, bh      
+    add bl, 30h   
+    mov dl, bl        
+    mov ah, 2h      
+    int 21h
+
+    add bh, 30h       
+    mov dl, bh        
+    mov ah, 2h        
+    int 21 h
+    mov ah, 4Ch
+    int 21h
+main endp
+end main
