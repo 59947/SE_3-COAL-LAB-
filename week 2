@@ -1,0 +1,58 @@
+Lab no 02
+                                      SAP  59947
+
+
+
+QS NO 1:  Describe the function of each ?
+
+Accumulator Register (A, AX, EAX, RAX)
+Base Register (B, BX, EBX, RBX)
+Count Register (C, CX, ECX, RCX)
+Data Register (D, DX, EDX, RDX)
+Function of Registers:
+Accumulator Register (A, AX, EAX, RAX):
+These registers are used for most calculations in the CPU. Think of them as "working" registers. They are involved in operations like adding or subtracting numbers.
+AX (16-bit), EAX (32-bit), RAX (64-bit) are used depending on the size of the data you're working with. For example, AX is for smaller numbers (16-bit), while EAX and RAX are used for larger numbers (32-bit and 64-bit).
+
+Base Register (B, BX, EBX, RBX):
+These registers are mainly used for storing memory addresses. When you want to access data stored in memory, you can use the base register to hold the address of the data you're working with.
+Like the accumulator, these registers are available in different sizes: BX (16-bit), EBX (32-bit), RBX (64-bit).
+
+Count Register (C, CX, ECX, RCX):
+This register is used mainly for counting, especially in loops or repetitive tasks. It’s often used in operations like repeating an instruction (e.g., in string processing or looping).
+CX (16-bit), ECX (32-bit), RCX (64-bit) hold the number of times an operation is repeated.
+
+Data Register (D, DX, EDX, RDX):
+This register stores data temporarily. It’s used in operations where you need to hold data before or after performing an operation. It can also be used for special tasks like I/O operations.
+Like others, it comes in different sizes: DX (16-bit), EDX (32-bit), RDX (64-bit).
+
+
+QS NO 2 : Describe the role of index registers in source and destination operations. Provide an example using SI and DI in an assembly instruction
+Index registers are special registers in the CPU used to store memory addresses. They help the CPU know where to get data from (the source) and where to put the data (the destination)
+ Role of Index Registers (SI and DI) in Source and Destination Operations:
+
+Source Index (SI):
+SI is used to store the address of the source, which is where the data is coming from.
+When the CPU needs to read or move data, it looks at the address stored in SI to find the source data.
+Destination Index (DI):
+DI is used to store the address of the destination, which is where the data should be placed.
+After the CPU reads the data from the SI address, it uses the DI address to know where to store or move that data. 
+Example:
+MOV AX, [SI];    Move the value at the memory location pointed to by SI into AX
+ADD AX, [DI];    Add the value at the memory location pointed to by DI to AX
+In this example, SI and DI are used as index registers to access memory location
+
+
+
+QS NO 3:  Briefly describe the functions of these bits?
+
+Functions of Flag Bits
+Flags are special bits in the CPU that help track the results of operations.
+Overflow Flag (OF):
+This flag is set when an operation produces a result that is too large or too small for the register to hold (e.g., adding two large numbers results in a value that can't fit in the register).
+
+Zero Flag (ZF):
+This flag is set when the result of an operation is zero. For example, if you subtract two equal numbers (like 5 - 5), the result is zero, and the Zero Flag is set.
+
+Carry Flag (CF):
+This flag is set when there’s a carry out in addition or a borrow in subtraction. For example, if you add two numbers and the result exceeds the maximum that can fit in the register, the Carry Flag is set.
