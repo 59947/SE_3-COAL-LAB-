@@ -1,0 +1,119 @@
+COAL LAB 10
+TASK 1:
+.model small
+    .stack 100h
+    .data
+    chars DB 'H','e', 'l', 'l', 'o'   
+    .code
+    main proc
+  mov ax,@data
+  mov ds,ax
+  mov si,0
+  mov cx,5
+  char_loop:
+  mov dl,chars[si]
+  mov ah,2
+  int 21h
+  inc si
+  loop char_loop
+  mov ah,4ch
+  int 21h
+  main endp
+    end main
+
+TASK 2
+.stack 100h
+  .data
+  hash db 5 dup('#')
+  .code
+  main proc
+  mov ax,@data
+  mov ds,ax
+  mov si,0
+  mov cx,5
+  DUP_loop:
+  mov dl,hash[si]
+  mov ah,2
+  int 21h
+  inc si 
+  loop DUP_loop
+  mov ah,4ch
+  int 21h 
+  main endp
+  end main
+
+TASK3
+.model small 
+ .stack 100h
+.data
+
+arry db 10,20,30,40,50,
+
+.code
+main proc
+   mov ax,@data
+   mov ds, ax
+   mov si ,0
+   mov cx,5
+ 
+   print_loop1:
+   mov al,arry[si]
+   add al,30h
+   
+   mov al,dl
+   mov ah ,2
+   int 21h
+   
+   mov dx,offset arry 
+   mov ah,9
+   int 21h
+  
+
+  
+   inc si
+   loop print_loop1
+ 
+   mov ah,4ch
+   int 21h
+  
+   
+   main endp
+end main
+
+TASK 4
+.model small
+    .stack 100h
+    .data
+ user DB 5 DUP('?')   
+ 
+    .code
+    main proc
+  mov ax,@data
+  mov ds,ax
+  
+  mov cx,5 
+  mov si,0
+  user_loop:
+ 
+  mov ah,1
+  int 21h 
+  
+  mov user [si],al
+  inc si
+  loop user_loop
+  mov dx,offset user
+  mov ah,9
+  int 21h  
+  mov si,0  
+  mov cx,5
+   
+  display_loop:
+  mov dl,user[si]
+  mov ah,2
+  int 21h
+  inc si
+  loop display_loop
+   mov ah,4ch
+  int 21h
+  main endp
+    end main
