@@ -1,0 +1,193 @@
+  Lab 07   
+
+
+Task no 1
+
+
+
+
+.model small 
+
+.stack 100h 
+
+.data 
+
+.code 
+
+  
+
+main proc 
+
+    mov ah, 01h 
+
+    int 21h            
+
+    sub al, '0'        
+
+    mov bl, al       
+
+    mul bl             ; AL * BL => AX = num^2 (square) 
+
+       add al, '0'       
+
+    mov dl, al         
+
+    mov ah, 02h 
+
+    int 21h 
+
+ mov ah, 4Ch 
+
+    int 21h 
+
+main endp 
+
+end main
+output
+
+
+
+
+
+Task no 2
+.model small 
+
+.stack 100h 
+
+.data 
+
+.code 
+
+main proc 
+
+     
+
+    mov ah, 01h 
+
+    int 21h            
+
+    sub al, '4'         
+
+    mov bl, al         
+
+  
+
+    ; Input Height 
+
+    mov ah, 01h 
+
+    int 21h             
+
+    sub al, '5'        
+
+    mov dl, bl         
+
+    mul al             
+
+    mov bx, 2 
+
+    div bx             
+
+    add al, '0'        
+
+    mov dl, al         
+
+    mov ah, 02h 
+
+    int 21h 
+
+    mov ah, 4Ch 
+
+    int 21h 
+
+        main endp 
+
+end main
+output
+
+
+
+
+
+
+
+
+
+Task no 3
+.model small 
+
+.stack 100h 
+
+.data 
+
+.code 
+
+main proc 
+
+    mov ah, 01h 
+
+    int 21h             
+
+    sub al, '0'  
+
+    mov bl, al          
+
+    mov ah, 01h 
+
+    int 21h             
+
+    sub al, '0'        
+
+    mul bl             
+
+    add al, '0'        
+
+    mov dl, al        
+
+    mov ah, 02h 
+
+    int 21h 
+
+    mov ah, 4Ch 
+
+    int 21h 
+
+    main endp 
+
+end main
+output
+
+Task no 3
+.model small
+.stack 100h
+
+.code
+main proc
+    ; Read number
+    mov ah, 01h
+    int 21h
+    sub al, '0'
+    mov bl, al
+
+    ; Calculate cube
+    mov al, bl
+    mul bl
+    mul bl
+
+    ; Print result (handling numbers greater than 9)
+    mov cx, ax
+    mov ah, 02h
+    mov dl, ch
+    add dl, '0'
+    int 21h
+    mov dl, cl
+    add dl, '0'
+    int 21h
+
+    ; Exit
+ mov ah, 4ch
+    int 21h
+main endp
+end main
+
+output
