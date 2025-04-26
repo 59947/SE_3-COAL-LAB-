@@ -1,0 +1,191 @@
+LAB : 06
+
+
+
+
+TASK 01: 
+
+.model small
+.stack 100h
+.data
+    firstName DB ' Name :Maryam$'      
+             
+    age DB 'Age :21$'                
+    occupation DB 'Occupation:Software Developer$'
+    email DB 'Gmail id:maryam@gmail.com$'
+    phone DB 'Phone number:123-456-7890$'
+
+.code
+main proc
+    mov ax, @data       
+    mov ds, ax          
+
+   
+    mov dx, offset firstName  
+    mov ah, 9           
+    int 21h            
+
+   
+    mov dl, 13          
+    mov ah, 2            
+    int 21h            
+
+    mov dl, 10           
+    mov ah, 2           
+    int 21h            
+
+    
+    mov dx, offset age   
+    mov ah, 9           
+    int 21h            
+
+    
+    mov dl, 13          
+    mov ah, 2            
+    int 21h            
+
+    mov dl, 10           
+    mov ah, 2           
+    int 21h            
+
+   
+    mov dx, offset occupation   
+    mov ah, 9           
+    int 21h            
+
+  
+    mov dl, 13          
+    mov ah, 2            
+    int 21h            
+
+    mov dl, 10           
+    mov ah, 2           
+    int 21h            
+
+
+    mov dx, offset email   
+    mov ah, 9           
+    int 21h            
+
+    
+    mov dl, 13          
+    mov ah, 2            
+    int 21h            
+
+    mov dl, 10           
+    mov ah, 2           
+    int 21h            
+
+   
+    mov dx, offset phone   
+    mov ah, 9           
+    int 21h            
+
+    mov ah, 4Ch     
+    int 21h            
+
+main endp
+end main
+
+
+
+
+TASK 02:
+
+   .model small
+.stack 100h
+.data
+    prompt DB 'Enter a character: $'
+    msg DB 'The user entered $ character.$'
+    newline DB 13, 10, '$'
+
+.code
+main proc
+    mov ax, @data
+    mov ds, ax
+
+    mov dx, offset prompt  
+    mov ah, 09h
+    int 21h
+
+    mov ah, 01h
+    int 21h
+    mov bl, al  
+
+    mov dx, offset newline
+    mov ah, 09h
+    int 21h
+
+    mov dx, offset msg
+    mov ah, 09h
+    int 21h
+
+    mov dl, bl
+    mov ah, 02h
+    int 21h
+
+    mov dx, offset newline
+    mov ah, 09h
+    int 21h
+
+    mov ah, 4Ch
+    int 21h
+
+main endp
+end main
+
+
+
+
+
+TASK 03: 
+
+.model small
+.stack 100h
+.data
+    prompt DB 'Enter a character: $'
+    msg DB 'The user entered $ character.$'
+    newline DB 13, 10, '$'
+
+.code
+main proc
+    mov ax, @data
+    mov ds, ax
+
+    mov dx, offset prompt  
+    mov ah, 09h
+    int 21h
+
+    mov ah, 01h
+    int 21h
+    mov bl, al  
+
+    cmp bl, 'a'
+    jl not_lower
+    cmp bl, 'z'
+    jg not_lower
+
+    sub bl, 32
+
+not_lower:
+    mov dx, offset newline
+    mov ah, 09h
+    int 21h
+
+    mov dx, offset msg
+    mov ah, 09h
+    int 21h
+
+    mov dl, bl
+    mov ah, 02h
+    int 21h
+
+    mov dx, offset newline
+    mov ah, 09h
+    int 21h
+
+    mov ah, 4Ch
+    int 21h
+
+main endp
+end main
