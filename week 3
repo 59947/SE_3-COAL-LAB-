@@ -1,0 +1,73 @@
+                                             Lab no : 03
+                                                Sap id : 59947
+
+Task 1:
+
+org 100h
+   .data
+   .code
+   main proc
+    mov dl, '5'
+    mov ah ,2h
+    int 21h
+    
+     mov dl, '9'
+    mov ah ,2h
+    int 21h
+    
+     mov dl, '9'
+    mov ah ,2h
+    int 21h
+    
+     mov dl, '4'
+    mov ah ,2h
+    int 21h
+    
+     mov dl, '7'
+    mov ah ,2h
+    int 21h
+    
+    main endp
+   end main
+
+
+
+Task 2:
+
+.org 100h
+ .model small
+.code
+main proc
+ 
+      
+
+    mov ah, 1h    
+    int 21h
+    sub al, '0'    
+    add bl, al
+    
+     mov dl,'+'
+    mov ah,2h
+    int 21h      
+
+    
+    mov ah, 1h    
+    int 21h
+    sub al, '0'   
+    add bl, al
+    
+    
+    mov dl,'='
+    mov ah,2h
+    int 21h    
+
+    add bl, '0'   
+    mov dl, bl    
+    mov ah, 02h   
+    int 21h        
+    mov ah, 4Ch    
+    int 21h
+
+main endp
+
+end main
